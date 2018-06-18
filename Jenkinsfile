@@ -60,7 +60,7 @@ stage ('Build') {
       stage ('Docker Deploy'){
     steps {
        // sh 'docker rm $(docker ps --all -q -f status=exited)'
-     sh 'docker run -it --name search_container2.0 -p 9090:8080 search/image'
+     sh 'docker run -it --name search_container2.0 -p 9020:8080 search/image'
             }   
        
    }
