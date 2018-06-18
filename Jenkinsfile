@@ -1,7 +1,8 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven-3-5-2'
+        maven 'maven3'
+
     }
     
     stages {
@@ -13,15 +14,12 @@ pipeline {
                 '''
             }
         }
-        
-        stage ('Preparation') {
+                stage ('Preparation') {
         steps {
-                git 'https://github.com/Nish1989/SpringBootHelloWorld.git'
+                git 'https://github.com/naresh35442/SpringBootHelloWorld.git'
             }
-         
-         }
-
-        stage ('Build') {
+        }
+stage ('Build') {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package' 
             }
@@ -31,42 +29,54 @@ pipeline {
                 }
             }
         }
-        
-         stage ('Junit Test') {
-            steps {
-                sh 'mvn test' 
+        stage ('Junit Test') {
+          steps {
+            sh 'mvn test' 
             }
             post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
-                }
+              success {
+               junit 'target/surefire-reports/**/*.xml' 
+             }
             }
         }
-        stage ('Results') {
+       stage ('Results') {
         
         steps {
-                junit '**/target/surefire-reports/TEST-*.xml'
-            archive 'target/*.jar'
+             junit '**/target/surefire-reports/TEST-*.xml'
+           archive 'target/*.jar'
             }
-            
         }
+        
+   stage ('Docker Build'){
+    steps {
+                                //echo "the application is deploying SpringBootHelloWorld-0.0.1-SNAPSHOT.jar"
+        sh 'docker build -t interface/lane1.0 .'
+       sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
+       // sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
+    
+            }   
+       
+   }
+      stage ('Docker Deploy'){
+    steps {
+        sh 'docker run -itd interface/lane1.0:latest'
+        sh 'docker rm $(docker ps --all -q -f status=exited)'
+       // sh 'docker run -p 7070:7070 nareshkazipet1/playground9'
+                //echo sh(script: 'env|sort', returnStdout: true)
+            }   
+       
+   }
+
    
-    }
-}
-node("docker") {
-    docker.withRegistry('<<playground9>>', '<<nareshkazipet1>>') {
-    
-        git url: "<<https://github.com/naresh35442/SpringBootHelloWorld.git>>", naresh35442: '<<Naresh.2521>>'
-    
-        sh "git rev-parse HEAD > .git/b0d1ff19b72531f8988de8a3445dac647709fb48"
-        def commit_id = readFile('.git/b0d1ff19b72531f8988de8a3445dac647709fb48').trim()
-        println commit_id
-    
-        stage "build"
-        def app = docker.build "myapp1"
-    
-        stage "publish"
-        app.push 'master'
-        app.push "${commit_id}"
+ //stage ('Docker Push'){
+   //steps {
+     //   sh '/usr/local/bin/docker push nareshkazipet1/playground9:latest9'      
+       // echo sh(script: 'env|sort', returnStdout: true)
+         //  }   
+    //   docker run -p 4000:80 username/repository:tag
+
+   //}
+
+
     }
 }
