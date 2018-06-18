@@ -56,10 +56,13 @@ stage ('Build') {
    }
       stage ('Docker Deploy'){
     steps {
-        sh 'docker run -it --name search_container1 -p 9090:8080 search_image'
-       // sh 'docker rm $(docker ps --all -q -f status=exited)'
+              sh 'docker run -it --name seach_container2 -p 9020:8080 search_image' 
+        // sh 'docker rm $(docker ps --all -q -f status=exited)'
        // sh 'docker run -p 7070:7070 nareshkazipet1/playground9'
                 //echo sh(script: 'env|sort', returnStdout: true)
+        
+                    }   
+
         
         
             }   
