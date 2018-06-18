@@ -1,4 +1,4 @@
-pipeline {
+{
     agent any
     tools {
         maven 'maven3'
@@ -14,6 +14,7 @@ pipeline {
                 '''
             }
         }
+    }
                 stage ('Preparation') {
         steps {
                 git 'https://github.com/naresh35442/SpringBootHelloWorld.git'
@@ -68,8 +69,3 @@ stage ('Build') {
             }   
        
    }
-
- 
-
-    }
-}
