@@ -50,7 +50,7 @@ stage ('Build') {
    stage ('Docker Build'){
     steps {
                                 //echo "the application is deploying SpringBootHelloWorld-0.0.1-SNAPSHOT.jar"
-        sh 'docker build -t search/image .'
+        sh 'docker build -t search_image .'
       // sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
        // sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
     
@@ -60,7 +60,7 @@ stage ('Build') {
       stage ('Docker Deploy'){
     steps {
        // sh 'docker rm $(docker ps --all -q -f status=exited)'
-     sh 'docker run -it --name search_container2.0 -p 9020:8080 search/image'
+     sh 'docker run -i --name search_container2.0 -p 9020:8080 search_image'
             }   
        
    }
