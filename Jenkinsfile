@@ -60,7 +60,7 @@ stage ('Build') {
       stage ('Docker Deploy'){
     steps {
        // sh 'docker rm $(docker ps --all -q -f status=exited)'
-     sh "docker run -i --name search_container_${env.BUILD_ID} -p 9020:8080 search_image_${env.BUILD_ID} > log_${env.BUILD_ID}.log"
+     sh "docker run -it -d --name search_container_${env.BUILD_ID} -p 9020:8080 search_image_${env.BUILD_ID} > log_${env.BUILD_ID}.log"
             }   
        
    }
