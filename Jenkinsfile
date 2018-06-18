@@ -49,34 +49,24 @@ stage ('Build') {
         
    stage ('Docker Build'){
     steps {
-                                //echo "the application is deploying SpringBootHelloWorld-0.0.1-SNAPSHOT.jar"
-        sh 'docker build -t interface/lane1.0 .'
-       sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
-       // sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
-    
-            }   
+        sh 'docker build -t search_image .'
+     
+          }   
        
    }
       stage ('Docker Deploy'){
     steps {
-        sh 'docker run -itd interface/lane1.0:latest'
+        sh 'docker run -it --name search_container1 -p 9090:8080 search_image'
        // sh 'docker rm $(docker ps --all -q -f status=exited)'
        // sh 'docker run -p 7070:7070 nareshkazipet1/playground9'
                 //echo sh(script: 'env|sort', returnStdout: true)
+        
+        
             }   
        
    }
 
-   
- //stage ('Docker Push'){
-   //steps {
-     //   sh '/usr/local/bin/docker push nareshkazipet1/playground9:latest9'      
-       // echo sh(script: 'env|sort', returnStdout: true)
-         //  }   
-    //   docker run -p 4000:80 username/repository:tag
-
-   //}
-
+ 
 
     }
 }
