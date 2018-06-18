@@ -1,4 +1,4 @@
-{
+pipeline {
     agent any
     tools {
         maven 'maven3'
@@ -14,7 +14,6 @@
                 '''
             }
         }
-    }
                 stage ('Preparation') {
         steps {
                 git 'https://github.com/naresh35442/SpringBootHelloWorld.git'
@@ -50,22 +49,24 @@ stage ('Build') {
         
    stage ('Docker Build'){
     steps {
-        sh 'docker build -t search_image .'
-     
-          }   
+                                //echo "the application is deploying SpringBootHelloWorld-0.0.1-SNAPSHOT.jar"
+        sh 'docker build -t search/image .'
+      // sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
+       // sh 'docker tag interface/lane1.0 nareshkazipet1/playground9:latest'
+    
+            }   
        
    }
       stage ('Docker Deploy'){
     steps {
-              sh 'docker run -it --name seach_container2 -p 9020:8080 search_image' 
-        // sh 'docker rm $(docker ps --all -q -f status=exited)'
-       // sh 'docker run -p 7070:7070 nareshkazipet1/playground9'
-                //echo sh(script: 'env|sort', returnStdout: true)
-        
-                    }   
-
-        
-        
+       // sh 'docker rm $(docker ps --all -q -f status=exited)'
+     sh 'docker run -it --name search_container2.0 -p 9090:8080 search/image'
             }   
        
    }
+
+   
+
+
+    }
+} 
