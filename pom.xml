@@ -58,7 +58,7 @@
                 <goal>run</goal>
             </goals>
             <configuration>
-                <target name="Deploying webapp to Tomcat.">
+                <target name="Deploying webapp to usr/local/apache-tomcat-9.0.8">
                     <copy todir="${usr/local/apache-tomcat-9.0.8.webapps.dir}" force="true">
                         <fileset dir="${project.build.directory}">
                             <include name="*.jar" />
