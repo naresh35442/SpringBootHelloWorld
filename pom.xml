@@ -6,10 +6,7 @@
 	<groupId>com.javainuse</groupId>
 	<artifactId>SpringBootHelloWorld</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-		
 	<packaging>jar</packaging>
-
-	
 
 	<name>SpringBootHelloWorld</name>
 	<description>Demo project for Spring Boot</description>
@@ -48,21 +45,16 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
-			    
-				<plugin>
+			    <plugin>
 		<groupId>org.apache.tomcat.maven</groupId>
 		<artifactId>tomcat7-maven-plugin</artifactId>
 		<version>2.2</version>
 		<configuration>
-			<url>http://localhost:8080/>
+			<url>http://localhost:8080/manager/html</url>
 			<server>TomcatServer</server>
-			<path>/WebApp</path>
+			<path>/usr/local/apache-tomcat-9.0.8/webapps</path>
 		</configuration>
 	</plugin>
-			
-			
-			
-	
 		</plugins>
 	</build>
 
