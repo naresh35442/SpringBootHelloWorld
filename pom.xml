@@ -52,7 +52,7 @@
 		<configuration>
 			<url>http://localhost:8080/manager/html</url>
 			<server>TomcatServer</server>
-			<path>/usr/local/apache-tomcat-9.0.8/webapps</path>
+			<path>/usr/local/apache-tomcat-9.0.8/</path>
 		</configuration>
 	</plugin>
 		</plugins>
