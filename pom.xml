@@ -64,7 +64,7 @@
     <repository>
         <id>webapps-repository</id>
         <name>webapps Repository</name>
-        <url>file://${ApacheTomcat}/usr/local/apache-tomcat-9.0.8/webapps</url>
+        <url>http://localhost:8080/manager/html</url>
     </repository>
 </distributionManagement>
     
