@@ -70,9 +70,9 @@
 	
 <distributionManagement>
     <repository>
-        <id>libexec-repository</id>
-        <name>libexec Repository</name>
-        <url>file://${M2_HOME}/usr/local/Cellar/maven/3.5.3/libexec</url>
+        <id>webapps-repository</id>
+        <name>webapps Repository</name>
+        <url>file://${ApacheTomcat}/usr/local/apache-tomcat-9.0.8/webapps</url>
     </repository>
 </distributionManagement>
     
