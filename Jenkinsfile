@@ -49,7 +49,7 @@ stage ('Build') {
         
    stage ('maven deploy') {
           steps {
-              sh "'${mvnHome}/bin/mvn' jar:jar deploy:deploy" 
+              sh "'mvn' jar:jar deploy:deploy" 
             }
             
         }
