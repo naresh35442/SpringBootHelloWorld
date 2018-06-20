@@ -72,7 +72,7 @@
     <repository>
         <id>proficio-repository</id>
         <name>Proficio Repository</name>
-        <url>file://${mvnHome}/target/deploy</url>
+        <url>file://${M2_HOME}/usr/local/Cellar/maven/3.5.3/libexec</url>
     </repository>
 </distributionManagement>
     
