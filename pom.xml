@@ -70,8 +70,8 @@
 	
 <distributionManagement>
     <repository>
-        <id>proficio-repository</id>
-        <name>Proficio Repository</name>
+        <id>libexec-repository</id>
+        <name>libexec Repository</name>
         <url>file://${M2_HOME}/usr/local/Cellar/maven/3.5.3/libexec</url>
     </repository>
 </distributionManagement>
