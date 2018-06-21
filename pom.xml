@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns="http://java.sun.com/xml/ns/javaee"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+			     http://java.sun.com/xml/ns/javaee 
+			     http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<version>${3.o}</version>
+
+	
 
 	<groupId>com.javainuse</groupId>
 	<artifactId>SpringBootHelloWorld</artifactId>
@@ -44,25 +51,24 @@
 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>						
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				
+				
+
+				
+				
+				
+				
+				
+				
+				
 			</plugin>
 		
 		</plugins>
 	
 	</build>
 	
-	
-	
-	<distributionManagement>
-    		<repository>
-        		<id>my.repo</id>
-        		<name>tomcat.admin</name>
-        		<url>http://localhost:8080/manager/html</url>
-			<username>admin</username>
-			<password>tomcat</password>
-    		</repository>
-		
-	</distributionManagement>
+
     
 	
 </project>
