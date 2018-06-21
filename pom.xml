@@ -40,59 +40,29 @@
 
 	<build>
 		
-				<plugins>
+		<plugins>
 
-		<plugin>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-maven-plugin</artifactId>
-			
-			
-			
-	<configuration>
-            
-		<container>
-                <containerId>apache-tomcat-9.0.8x</containerId>
-                <type>remote</type>
-            </container>
-            <configuration>
-                <type>runtime</type>
-                <properties>
-                    <tomcat.hostname>${tomcat.admin}</tomcat.hostname>
-                    <tomcat.manager.url>${http://localhost:8080/manager/html}</tomcat.manager.url>
-		    <cargo.tomcat.manager.url>${cargo.tomcat.manager.url}</cargo.tomcat.manager.url>
-                    <tomcat.password>${tomcat.tomcat}</tomcat.password>
-                </properties>
-          
-	</configuration>
-			
-			
-			
-			
-		</plugin>
-				
-
-
-			
-			    
-
-				</plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>						
+			</plugin>
+		
+		</plugins>
 	
-			
-			
-			
-			
-			
-			
 	</build>
 	
 	
-<distributionManagement>
-    <repository>
-        <id>my.repo</id>
-        <name>tomcat.admin</name>
-        <url>http://localhost:8080/manager/html</url>
-    </repository>
-</distributionManagement>
+	
+	<distributionManagement>
+    		<repository>
+        		<id>my.repo</id>
+        		<name>tomcat.admin</name>
+        		<url>http://localhost:8080/manager/html</url>
+			<username>admin</username>
+			<password>tomcat</password>
+    		</repository>
+		
+	</distributionManagement>
     
 	
 </project>
