@@ -57,9 +57,10 @@
             <configuration>
                 <type>runtime</type>
                 <properties>
-                    <tomcat.hostname>${tomcat.hostname}</tomcat.hostname>
-                    <tomcat.manager.url>${tomcat.manager.url}</tomcat.manager.url>
-                    <tomcat.password>${tomcat.password}</tomcat.password>
+                    <tomcat.hostname>${tomcat.admin}</tomcat.hostname>
+                    <tomcat.manager.url>${http://localhost:8080/manager/html}</tomcat.manager.url>
+		    <cargo.tomcat.manager.url>${cargo.tomcat.manager.url}</cargo.tomcat.manager.url>
+                    <tomcat.password>${tomcat.tomcat}</tomcat.password>
                 </properties>
           
 	</configuration>
