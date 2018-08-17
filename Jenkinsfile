@@ -50,7 +50,16 @@ stage ('Build') {
             }
             
         }
-   
+   post {
+				success{
+                 	 sh "echo 'maven deploy success'"
+					EmailNotify("Success","Docker Image Creation", "naresh.35442@gmail.com")
+				}
+				failure{
+					EmailNotify("Failed","Docker Image Creation",  "naresh.35442@gmail.com")
+					//JiraTicketCreation("Issue - maven deploy failed", "maven deploy failed", "naresh.35442@gmail.com")
+				}
+			}
 
 
     }
