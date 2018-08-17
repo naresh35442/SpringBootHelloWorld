@@ -13,7 +13,7 @@ pipeline {
         }
                 stage ('Preparation') {
         steps {
-                git 'https://github.com/naresh35442/SpringBootHelloWorld.git'
+                git 'shttps://github.com/naresh35442/SpringBootHelloWorld.git'
             }
         }
 stage ('Build') {
@@ -50,17 +50,28 @@ stage ('Build') {
             }
             
         }
-   post {
-				success{
-                 	 sh "echo 'maven deploy success'"
-					EmailNotify("Success","Docker Image Creation", "naresh.35442@gmail.com")
-				}
-				failure{
-					EmailNotify("Failed","Docker Image Creation",  "naresh.35442@gmail.com")
-					//JiraTicketCreation("Issue - maven deploy failed", "maven deploy failed", "naresh.35442@gmail.com")
-				}
-			}
+      post {
+    success {
+      //slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+       office365ConnectorSend message: "Example stage passed", color: '#00FF00', status:"Success", webhookUrl:'https://outlook.office.com/webhook/f8269f52-2231-45b8-a796-a499b16cfaff@d007658b-5965-4221-9fdd-b49f781268da/IncomingWebhook/cbb1fe389fc7466992114abbb3f1b704/2ffcc5ab-6579-4bd2-ba2e-e034937a3b65'
+     // hipchatSend (color: 'GREEN', notify: true,
+      // "${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL})"
 
+
+    }
+
+     
+        failure {
+           //office365ConnectorSend color: 'Red', message: 'test-not driven', status: 'stage fail', webhookUrl: 'https://outlook.office.com/webhook/f8269f52-2231-45b8-a796-a499b16cfaff@d007658b-5965-4221-9fdd-b49f781268da/IncomingWebhook/cbb1fe389fc7466992114abbb3f1b704/2ffcc5ab-6579-4bd2-ba2e-e034937a3b65'
+//office365ConnectorSend message: "<Your message>", status:"<Build status>", webhookUrl:'https://outlook.office.com/webhook/f8269f52-2231-45b8-a796-a499b16cfaff@d007658b-5965-4221-9fdd-b49f781268da/IncomingWebhook/cbb1fe389fc7466992114abbb3f1b704/2ffcc5ab-6579-4bd2-ba2e-e034937a3b65'
+       
+             office365ConnectorSend message: "Example stage failed", color: '#FF0000', status:"Failed", webhookUrl:'https://outlook.office.com/webhook/f8269f52-2231-45b8-a796-a499b16cfaff@d007658b-5965-4221-9fdd-b49f781268da/IncomingWebhook/cbb1fe389fc7466992114abbb3f1b704/2ffcc5ab-6579-4bd2-ba2e-e034937a3b65'
+     // hipchatSend (color: 'GREEN', notify: true,
+       //Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL})'
+
+     
+        }
+   }
 
     }
 } 
